@@ -1,0 +1,351 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0",
+      "title": "restfull Api & Middleware",
+      "contact": {}
+    },
+    "host": "localhost:8080",
+    "basePath": "/",
+    "securityDefinitions": {},
+    "schemes": [
+      "http"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "paths": {
+      "/login/movies": {
+        "get": {
+          "description": "Movies from headers values and input token verify",
+          "summary": "Users Login",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "UsersLogin",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "jwt-token",
+              "in": "header",
+              "required": true,
+              "type": "string",
+              "description": ""
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/users/register": {
+        "post": {
+          "description": "Users get token verify based on Database (email & Password) from table Users ",
+          "summary": "Users Register",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "UsersRegister",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Body",
+              "in": "body",
+              "required": true,
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/UsersRegisterRequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/login/movies/1": {
+        "get": {
+          "description": "Users can Get Movies ID with Token Validation From Users Register",
+          "summary": "Users Login Movies ID",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "UsersLoginMoviesID",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "jwt-token",
+              "in": "header",
+              "required": true,
+              "type": "string",
+              "description": ""
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/login/movies/insert": {
+        "post": {
+          "description": "Users insert Table From database Movies after the token verify",
+          "summary": "Users Login Insert Table",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "UsersLoginInsertTable",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "jwt-token",
+              "in": "header",
+              "required": true,
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "Body",
+              "in": "body",
+              "required": true,
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/UsersLoginInsertTableRequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/login/movies/update": {
+        "put": {
+          "description": "Users update table From database Movies after token Validation ",
+          "summary": "Users Login Update Table",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "UsersLoginUpdateTable",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "jwt-token",
+              "in": "header",
+              "required": true,
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "Body",
+              "in": "body",
+              "required": true,
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/UsersLoginUpdateTableRequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/login/movies/delete": {
+        "delete": {
+          "description": "Users Delete from database Movies After token Validation",
+          "summary": "Users Login Delete Table",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "UsersLoginDeleteTable",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "jwt-token",
+              "in": "header",
+              "required": true,
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "Body",
+              "in": "body",
+              "required": true,
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/UsersLoginDeleteTableRequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/users": {
+        "get": {
+          "description": "Users get the table users from database with token verify",
+          "summary": "Users login users",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "Usersloginusers",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "jwt-token",
+              "in": "header",
+              "required": true,
+              "type": "string",
+              "description": ""
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "UsersRegisterRequest": {
+        "title": "UsersRegisterRequest",
+        "example": {
+          "email": "cborrill2p@sciencedirect.com",
+          "password": "L38dNYJaR6F"
+        },
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "email",
+          "password"
+        ]
+      },
+      "UsersLoginInsertTableRequest": {
+        "title": "UsersLoginInsertTableRequest",
+        "example": {
+          "id": 107,
+          "title": "i can see you",
+          "genres": "horor",
+          "year": 2021
+        },
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string"
+          },
+          "genres": {
+            "type": "string"
+          },
+          "year": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "genres",
+          "year"
+        ]
+      },
+      "UsersLoginUpdateTableRequest": {
+        "title": "UsersLoginUpdateTableRequest",
+        "example": {
+          "genres": "imposible",
+          "id": 105
+        },
+        "type": "object",
+        "properties": {
+          "genres": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "genres",
+          "id"
+        ]
+      },
+      "UsersLoginDeleteTableRequest": {
+        "title": "UsersLoginDeleteTableRequest",
+        "example": {
+          "id": 103
+        },
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      }
+    },
+    "tags": [
+      {
+        "name": "Misc",
+        "description": ""
+      }
+    ]
+  }
